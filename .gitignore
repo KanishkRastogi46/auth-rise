@@ -1,0 +1,100 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+build/
+.tmp/
+.temp/
+
+# TypeScript incremental build info
+*.tsbuildinfo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs/
+*.log
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+
+# Local database artifacts (if any dumps)
+*.sql
+*.dump
+
+# Coverage / testing
+coverage/
+.nyc_output/
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+*.iml
+
+# Cache
+.cache/
+.parcel-cache/
+.eslintcache
+
+# Misc
+*.pid
+*.seed
+```// filepath: c:\Users\Asus\Desktop\projects\autho-rise\.gitignore
+# Node modules
+node_modules/
+
+# Build output
+dist/
+build/
+.tmp/
+.temp/
+
+# TypeScript incremental build info
+*.tsbuildinfo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs/
+*.log
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+
+# Local database artifacts (if any dumps)
+*.sql
+*.dump
+
+# Coverage / testing
+coverage/
+.nyc_output/
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+*.iml
+
+# Cache
+.cache/
+.parcel-cache/
+.eslintcache
+
+# Misc
+*.pid

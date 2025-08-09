@@ -1,0 +1,43 @@
+{
+  "name": "autho-rise",
+  "version": "1.0.0",
+  "description": "\"An authorization server\"",
+  "license": "MIT",
+  "author": "kanishkrastogi46@gmail.com",
+  "type": "commonjs",
+  "main": "dist/main.js",
+  "scripts": {
+    "start:dev": "nodemon --exec ts-node src/main.ts",
+    "start": "node dist/main.js",
+    "build": "tsc",
+    "db:create": "ts-node src/db/create-db.ts",
+    "db:migrate": "ts-node src/db/migrate.ts",
+    "db:generate": "drizzle-kit generate --config=./src/config/drizzle.config.ts"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "drizzle-orm": "^0.44.3",
+    "express": "^5.1.0",
+    "express-async-handler": "^1.2.0",
+    "express-session": "^1.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.16.3",
+    "ts-node": "^10.9.2",
+    "zod": "^4.0.5"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.9",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^24.1.0",
+    "@types/pg": "^8.15.5",
+    "drizzle-kit": "^0.31.4",
+    "nodemon": "^3.1.10",
+    "tsconfig-paths": "^4.2.0",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  }
+}
