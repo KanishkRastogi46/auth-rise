@@ -6,6 +6,7 @@ import cors from 'cors'
 
 import { globalErrorHandler } from './error'
 import { correlationIdMiddleware } from './middleware/correlation-id.middleware'
+import { NotFoundException } from './errors/NotFoundException'
 
 config()
 
@@ -25,11 +26,7 @@ app.use(correlationIdMiddleware)
 
 
 app.use((req: Request, res: Response) => {
-    res.status(404).json({
-        status: 'Request Failed',
-        message: `Cannot ${req.method} ${req.originalUrl}`,
-        success: false
-    })
+    res.status(404).json(new NotFoundException('Path doesn\'t exist'))
 })
 
 app.use(globalErrorHandler)
