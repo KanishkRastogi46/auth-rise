@@ -11,25 +11,9 @@ export class NotFoundException extends Error {
         this.name = Errors.NotFoundException
         this.status = 404
         this.timestamp = new Date().toISOString()
-    }
 
-    getMessage(): string {
-        return this.message
-    }
-
-    getStatus(): number {
-        return this.status
-    }
-
-    getName(): string {
-        return this.name
-    }
-
-    getResponse() {
-        return {
-            status: this.getStatus(),
-            message: this.getMessage(),
-            timestamp: new Date().toISOString(),
+        if (this.stack) {
+            console.error(this.stack)
         }
     }
 }

@@ -1,4 +1,5 @@
 export enum Errors {
+    HttpException = 'HttpException',
     NotFoundException = 'NotFoundException',
     UnauthorizedException = 'UnauthorizedException',
     ForbiddenException = 'ForbiddenException',

@@ -11,17 +11,10 @@ export class BadRequestException extends Error {
         this.name = Errors.BadRequestException
         this.status = 400
         this.timestamp = new Date().toISOString()
-    }
 
-    getMessage(): string {
-        return this.message
-    }
-
-    getStatus(): number {
-        return this.status
-    }
-
-    getName(): string {
-        return this.name
+        if (this.stack) {
+            console.error(this.stack)
+            process.exit(1)
+        }
     }
 }
