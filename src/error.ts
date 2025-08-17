@@ -1,12 +1,12 @@
-import { Request, Response, NextFunction } from "express";
-
+import { Request, Response } from "express";
+import { HttpException } from "./errors/HttpException";
 
 export function globalErrorHandler(
-  err: Error,
+  err: HttpException,
   req: Request,
   res: Response,
-  next: NextFunction
+  _: any
 ): void {
   console.error(err.stack);
-  res.status(500).send({ error: err.message });
+  res.status(err.status).send({ error: err.message, timestamp: new Date().toISOString() });
 }

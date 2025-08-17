@@ -1,15 +1,14 @@
 import { Errors } from "./enum/errors.enum"
 
-export class ForbiddenException extends Error {
-    public status: number
-    public name: string
-    public timestamp: string
+export class HttpException extends Error {
+    private timestamp: string
     constructor(
-        public message: string
+        public message: string,
+        public status: number = 500,
     ) {
         super(message)
-        this.name = Errors.ForbiddenException
-        this.status = 403
+        this.name = Errors.HttpException
+        this.status = status
         this.timestamp = new Date().toISOString()
 
         if (this.stack) {
