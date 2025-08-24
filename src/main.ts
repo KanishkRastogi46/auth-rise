@@ -7,6 +7,10 @@ import cors from 'cors'
 import { globalErrorHandler } from './error'
 import { correlationIdMiddleware } from './middleware/correlation-id.middleware'
 import { NotFoundException } from './errors/NotFoundException'
+import { limiter } from './middleware/rate-limit.middleware'
+
+import { router } from './route'
+import { validatorMiddleware } from './middleware/validation.middleware'
 
 config()
 
@@ -19,15 +23,24 @@ app.use(cors({
     origin: process.env.CORS_ORIGIN,
     credentials: true
 }))
+app.use(limiter)
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
 app.use(correlationIdMiddleware)
+app.use(validatorMiddleware)
 
+app.use('/api/v1', router)
 
-app.use((req: Request, res: Response) => {
-    res.status(404).json(new NotFoundException('Path doesn\'t exist'))
-})
+app.use(
+    /** 
+     * Handle 404 - Keep this as the last route
+    */
+    (req: Request, res: Response) => 
+        {
+            res.status(404).json(new NotFoundException('Path doesn\'t exist'))
+        }
+)
 
 app.use(globalErrorHandler)
 
